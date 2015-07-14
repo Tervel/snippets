@@ -1,17 +1,10 @@
 function Song(title, artist, duration) {
-  this.title = title;
+  // Call media allows us to access functionality from media (think inheritance from java)
+  Media.call(this, title, duration); // this keyword represents the fact that the specific song instance is what's inheriting the functionality. Song becomes 'this' in the media function
   this.artist = artist;
-  this.duration = duration;
-  this.isPlaying = false;
 }
 
-Song.prototype.play = function() {
-  this.isPlaying = true;
-};
-
-Song.prototype.stop = function() {
-  this.isPlaying = false;
-};
+Song.prototype = Object.create(Media.prototype); // Copies references to Media properties over to the Song object
 
 Song.prototype.toHTML = function() {
   var htmlString = '<li';
