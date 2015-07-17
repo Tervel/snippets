@@ -11,7 +11,6 @@
 // 3. When overlay is clicked
 //  3.1 Hide the overlay
 
-
 var $overlay = $('<div id="overlay"></div>'); // jQuery object
 var $image = $("<img>");
 var $caption = $("<p></p>");

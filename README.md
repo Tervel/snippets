@@ -1,2 +1,2 @@
 # snippets
-random  code snippets
+Random code snippets
