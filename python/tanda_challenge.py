@@ -1,11 +1,9 @@
 """
 Entry for the Tanda QUT challenge
 """
-
 import sys
 import itertools
-
-knapsack_list = []
+from itertools import groupby
 
 def memoized(f):
     """ Memoization decorator for functions taking one or more arguments. """
@@ -47,6 +45,19 @@ def main():
     Main function
     """
 
+    # groupeditems = (
+    #     ("Alex",71, 4, 1),
+    #     ("Jake",95, 5, 1),
+    #     # ("Tasmin",69, 4, 1),
+    #     ("Josh",147, 8, 1),
+    #     ("Adam",138, 8, 1),
+    #     ("Wayne",86, 5, 1),
+    #     ("Dave",103, 6, 1),
+    #     ("Bri",171, 9, 1),
+    #     ("Scott",73, 4, 1),
+    #     ("Marissa",140, 7, 1),
+    # )
+
         # (value, weight)
     items = [(9, 171), (8, 147), (8, 138), (7, 140), (4, 69),
              (4, 73), (6, 103), (5, 95), (5, 86), (4, 71)]
@@ -55,13 +66,16 @@ def main():
     # sort by weight
     items.sort(key=lambda x: x[1])
 
+    max_value = knapsack(items, maxweight)[0]
 
     for i in range(len(items)):
         temp_list = set(itertools.combinations(items, i)).copy()
         for j in range(len(temp_list)):
             valid_sack = knapsack(temp_list.pop(), maxweight)
-            if valid_sack[0] == 44:
+            if valid_sack[0] >= max_value:
                 print(str(valid_sack[0]) + ':' + str(sum(n for _, n in valid_sack[1])))
+
+    print(groupeditems)
 
     return
 
