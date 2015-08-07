@@ -1,2 +1,2 @@
 # snippets
-Random code snippets
+Small learning projects/code snippets
