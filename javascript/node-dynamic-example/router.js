@@ -16,16 +16,15 @@ function home(request, response) {
             renderer.view("footer", {}, response);
             response.end();
         } else {
-        // if url == "/" && POST
-        // Get the post data from body
-        request.on("data", function(postBody) {
-            // Extract the username
-            var query = querystring.parse(postBody.toString());
-            // redirect to /:username
-            response.writeHead(303, {"Location": "/" + query.username});
-            response.end();
-        });
-
+            // if url == "/" && POST
+            // Get the post data from body
+            request.on("data", function(postBody) {
+                // Extract the username
+                var query = querystring.parse(postBody.toString());
+                // redirect to /:username
+                response.writeHead(303, {"Location": "/" + query.username});
+                response.end();
+            });
         }
     }
 }
