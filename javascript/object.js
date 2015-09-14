@@ -1,11 +1,3 @@
-// function Dice(sides) { // Constructor function
-//   this.sides = sides; // instance var
-//   this.roll = function () { // instance method
-//     var randomNumber = Math.floor(Math.random() * this.sides) + 1;
-//     return randomNumber
-//   }
-// }
-
 function Dice(sides) {
     this.sides = sides;
 }
